@@ -72,7 +72,7 @@ class EditMasterFragment : Fragment() {
 
     private fun loadMasterDetails(i: Master) {
         binding.tvCurMasterName.text = i.name
-        binding.tvMasterId.text = binding.tvMasterId.text.toString() + i.id.toString()
+        binding.tvMasterId.text = "id: " + i.id.toString()
         rvAdapter = RvMasterAdapter(i.busy_times)
         binding.rvBusyTimes.layoutManager = LinearLayoutManager(requireContext())
         binding.rvBusyTimes.setHasFixedSize(true)

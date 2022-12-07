@@ -13,6 +13,7 @@ import com.azrosk.tiersapp.helper.Constants
 import com.azrosk.tiersapp.sharedpref.MySharedPreferences
 import com.azrosk.tiersapp.ui.admins_ui.activities.MainActivity
 import com.azrosk.tiersapp.ui.clients_ui.actitvity.ClientsActivity
+import com.azrosk.tiersapp.ui.shared.login.LoginActivity
 import java.util.*
 
 class LanguageDialogFragment : DialogFragment() {
@@ -57,7 +58,7 @@ class LanguageDialogFragment : DialogFragment() {
         if (binding.spinnerLanguages.selectedItem != curLanguage){
             val sp = MySharedPreferences(requireContext())
             sp.saveLanguage(binding.spinnerLanguages.selectedItem.toString())
-            if (curUser == Constants.ADMIN){
+            if (curUser == Constants.ADMIN || curUser == "empty"){
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 startActivity(intent)
                 requireActivity().finish()
